@@ -4,13 +4,14 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import validation from '../validation/LoginValidation';
 import { ClearUserInfo, SetUserInfo } from '../utils/LocalStorage';
-// import {GoogleSignButton} from '../utils/GoogleAuth';
+import {GoogleLoginButton} from '../utils/GoogleLoginButton';
 // import {FacebookSignButton} from '../utils/FacebookAuth';
 import ModalSuccess from '../components/global/ModalSuccess';
 import ModalError from '../components/global/ModalError';
 import Icon from '../assets/svg';
 import Config from '../../config';
 import LoginBackground from '../assets/svg/LoginBackground';
+import { FacebookLoginButton } from '../utils/FacebookLoginButton';
 
 
 export default function Login({navigation}) {
@@ -135,10 +136,11 @@ export default function Login({navigation}) {
         </View>
       </View>
 
-      {/*<View style={styles.oauthButtonsBody}>
-        <GoogleSignButton ShowErrorModal={ShowErrorModal} />
-        <FacebookSignButton ShowErrorModal={ShowErrorModal} />
-      </View>*/}
+      <View style={styles.oauthButtonsBody}>
+        <GoogleLoginButton navigation={navigation} ShowSuccessModal={ShowSuccessModal} ShowErrorModal={ShowErrorModal} />
+        {/* <FacebookSignButton ShowErrorModal={ShowErrorModal} /> */}
+        <FacebookLoginButton navigation={navigation} ShowSuccessModal={ShowSuccessModal} ShowErrorModal={ShowErrorModal} />
+      </View>
 
       <ModalSuccess content={successModalContent} visible={successModalVisible} />
       <ModalError content={errorModalContent} visible={errorModalVisible} />
@@ -154,12 +156,11 @@ const styles = StyleSheet.create({
     padding: '7%',
   },
   body: {
-    flex: 4,
-    display: 'flex',
-    justifyContent: 'center',
+    flex: 6,
+    display: 'flex', 
+    justifyContent: 'flex-end',
   },
-  formBody: {
-    marginTop: "30%",
+  formBody: { 
     padding: '5%',
     backgroundColor: '#fff',
     borderWidth: 1,
