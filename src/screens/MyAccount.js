@@ -5,7 +5,7 @@ import { GetUserInfo } from '../utils/LocalStorage';
 import { DeleteRequest, GetRequest } from '../utils/GlobalApiCall';
 import ModalError from '../components/global/ModalError.js';
 import ModalSuccess from '../components/global/ModalSuccess';
-import { ModalConfirmation as ModalUserDeleteConfirmation } from '../components/myAccount/ModalConfirmation.js';
+import { ModalConfirmation as ModalUserDeleteConfirmation } from '../components/global/confirmationModal/ModalConfirmation.js';
 import Icon from '../assets/svg';
 
 export default function MyAccount({ navigation, route }) {
